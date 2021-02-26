@@ -37,7 +37,7 @@ class SnackbarComponent extends Component {
         style={[
           styles.limitContainer,
           {
-            height: this.state.translateValue.interpolate({
+            scaleY: this.state.translateValue.interpolate({
               inputRange: [0, 1],
               outputRange: [0, this.state.hideDistance],
             }),
