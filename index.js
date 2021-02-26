@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+
 import PropTypes from 'prop-types';
 import {
-  StyleSheet,
-  Text,
   Animated,
   Easing,
+  StyleSheet,
+  Text,
   ViewPropTypes,
 } from 'react-native';
+
 import { Touchable } from './src';
 
 /* Values are from https://material.io/guidelines/motion/duration-easing.html#duration-easing-dynamic-durations */
@@ -113,6 +115,7 @@ class SnackbarComponent extends Component {
         duration: durationValues.entry,
         toValue: 1,
         easing: easingValues.entry,
+        useNativeDriver: true,
       }).start();
       if (nextProps.autoHidingTime) {
         const hideFunc = this.hideSnackbar.bind(this);
@@ -148,6 +151,7 @@ class SnackbarComponent extends Component {
     Animated.timing(this.state.translateValue, {
       duration: durationValues.exit,
       toValue: 0,
+      useNativeDriver: true,
       easing: easingValues.exit,
     }).start();
   }
