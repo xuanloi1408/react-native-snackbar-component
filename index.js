@@ -37,7 +37,7 @@ class SnackbarComponent extends Component {
         style={[
           styles.limitContainer,
           {
-            scaleY: this.state.translateValue.interpolate({
+            height: this.state.translateValue.interpolate({
               inputRange: [0, 1],
               outputRange: [0, this.state.hideDistance],
             }),
@@ -115,7 +115,7 @@ class SnackbarComponent extends Component {
         duration: durationValues.entry,
         toValue: 1,
         easing: easingValues.entry,
-        useNativeDriver: true,
+        useNativeDriver: false,
       }).start();
       if (nextProps.autoHidingTime) {
         const hideFunc = this.hideSnackbar.bind(this);
@@ -151,7 +151,7 @@ class SnackbarComponent extends Component {
     Animated.timing(this.state.translateValue, {
       duration: durationValues.exit,
       toValue: 0,
-      useNativeDriver: true,
+      useNativeDriver: false,
       easing: easingValues.exit,
     }).start();
   }
